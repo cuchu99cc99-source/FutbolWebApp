@@ -1,0 +1,30 @@
+[Workspace]
+CurrentProject=WebApp.src
+Location=C:\DataFlex Projects\FutbolWebApp\IdeSrc\cuchu_Studio.dsk
+CreateNew=-1
+[TabWindows]
+GroupCount=1
+HorizontalGroups=1
+[TabGroup0]
+GroupSize=40
+SelectedTab=1
+[Window0]
+Filename=Workspace Dashboard
+ViewType=101
+Top=26
+Left=0
+Bottom=589
+Right=816
+TabIndex=0
+TabGroup=0
+[Window1]
+Filename=C:\DataFlex Projects\FutbolWebApp\AppSrc\WebApp.src
+ViewType=1
+Top=26
+Left=0
+Bottom=589
+Right=816
+CursorLine=0
+CursorColumn=0
+TabIndex=1
+TabGroup=0
