@@ -1,0 +1,11 @@
+{
+    "dependencies": [
+        "DataFlex-dev/Web UI Server#1.0.56",
+        "DataFlex-dev/Web UI Material Theme#1.0.4"
+    ],
+    "description": "Proyecto Futbol Data control ",
+    "df": 26.0,
+    "projects": [
+        "WebApp.src"
+    ]
+}
