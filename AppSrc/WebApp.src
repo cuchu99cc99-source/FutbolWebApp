@@ -66,6 +66,17 @@ Object oWebApp is a cWebApp
                                 Send NavigatePath
                         End_Procedure
                     End_Object
+
+                    Object oSeleccionarPosicionItem1 is a cWebMenuItem
+                        Set psCaption to "Seleccionar Posicion"
+
+                        WebRegisterPath ntNavigateBegin oSelectPosicion
+
+                        Procedure OnClick
+                            Forward Send OnClick
+                                Send NavigatePath
+                        End_Procedure
+                    End_Object
                 End_Object
 
                 Object oSignOut_itm is a cWebMenuItem
@@ -151,6 +162,8 @@ Object oWebApp is a cWebApp
     Use ZoomEntrenador.wo
     Use SelectLiga.wo
     Use ZoomLiga.wo
+    Use SelectPosicion.wo
+    Use ZoomPosicion.wo
     Set phoDefaultView to oDashboard
     
     // Hide the header panel for users that are not logged in.
