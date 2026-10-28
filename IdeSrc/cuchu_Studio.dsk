@@ -1,7 +1,7 @@
 [Workspace]
 CurrentProject=WebApp.src
 Location=C:\DataFlex Projects\FutbolWebApp\IdeSrc\cuchu_Studio.dsk
-CreateNew=-1
+CreateNew=71
 [TabWindows]
 GroupCount=1
 HorizontalGroups=1
@@ -14,16 +14,34 @@ ViewType=101
 Top=26
 Left=0
 Bottom=589
-Right=816
+Right=819
 TabIndex=0
 TabGroup=0
 [Window1]
+Filename=C:\DataFlex Projects\FutbolWebApp\AppSrc\SelectEntrenador.wo
+ViewType=102
+Top=26
+Left=0
+Bottom=589
+Right=819
+TabIndex=2
+TabGroup=0
+[Window2]
+Filename=C:\DataFlex Projects\FutbolWebApp\AppSrc\ZoomEntrenador.wo
+ViewType=102
+Top=26
+Left=0
+Bottom=589
+Right=819
+TabIndex=3
+TabGroup=0
+[Window3]
 Filename=C:\DataFlex Projects\FutbolWebApp\AppSrc\WebApp.src
 ViewType=1
 Top=26
 Left=0
 Bottom=589
-Right=816
+Right=819
 CursorLine=0
 CursorColumn=0
 TabIndex=1
