@@ -1,5 +1,6 @@
 ﻿Use AllWebUIServerClasses.pkg
 Use cConnection.pkg
+Use cWebMenuItem.pkg
 
 Object oApplication is a cApplication
     Object oConnection is a cConnection
@@ -43,6 +44,17 @@ Object oWebApp is a cWebApp
 
                 Object oViewMenu is a cWebMenuItem
                     Set psCaption to C_$View
+
+                    Object oSeleccionarEntrenadorItem1 is a cWebMenuItem
+                        Set psCaption to "Seleccionar Entrenador"
+
+                        WebRegisterPath ntNavigateBegin oSelectEntrenador
+
+                        Procedure OnClick
+                            Forward Send OnClick
+                                Send NavigatePath
+                        End_Procedure
+                    End_Object
                 End_Object
 
                 Object oSignOut_itm is a cWebMenuItem
@@ -124,6 +136,8 @@ Object oWebApp is a cWebApp
     Use WebResourceManager.wo
     
     Use Dashboard.wo
+    Use SelectEntrenador.wo
+    Use ZoomEntrenador.wo
     Set phoDefaultView to oDashboard
     
     // Hide the header panel for users that are not logged in.
