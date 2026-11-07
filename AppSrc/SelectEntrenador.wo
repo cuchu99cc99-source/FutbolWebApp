@@ -26,16 +26,15 @@ Object oSelectEntrenador is a cWebView
     End_Object 
 
     Object oequipo_DD is a cequipoDataDictionary
-        Set DDO_Server To oliga_DD
+        Set DDO_Server to oliga_DD
     End_Object 
 
     Object oentrenador_DD is a centrenadorDataDictionary
-        Set DDO_Server To oequipo_DD
+        Set DDO_Server to oequipo_DD
     End_Object 
 
-    Set Main_DD To oentrenador_DD
-    Set Server  To oentrenador_DD
-
+    Set Main_DD to oentrenador_DD
+    Set Server  to oentrenador_DD
 
     Object oList is a cWebList
         Set piColumnSpan to 0
@@ -45,28 +44,22 @@ Object oSelectEntrenador is a cWebView
         Set pbShowHeader to False
         Set piSortColumn to 0
 
+        Object oentrenadorId is a cWebColumn
+            Entry_Item entrenador.Id
+            Set psCaption to "entrenador.Id"
+            Set piWidth to 100
+        End_Object 
+
         Object oentrenadorNombre is a cWebColumn
             Entry_Item entrenador.Nombre
             Set psCaption to "entrenador.Nombre"
-            Set piWidth to 745
-        End_Object 
-
-        Object oentrenadorApellido is a cWebColumn
-            Entry_Item entrenador.Apellido
-            Set psCaption to "entrenador.Apellido"
-            Set piWidth to 745
-        End_Object 
-
-        Object oentrenadorNacionalidad is a cWebColumn
-            Entry_Item entrenador.Nacionalidad
-            Set psCaption to "entrenador.Nacionalidad"
-            Set piWidth to 621
+            Set piWidth to 500
         End_Object 
 
         Object oequipoNombre is a cWebColumn
             Entry_Item equipo.Nombre
             Set psCaption to "equipo.Nombre"
-            Set piWidth to 1491
+            Set piWidth to 500
         End_Object 
 
         Object oDetailButton is a cWebColumnButton
@@ -83,40 +76,12 @@ Object oSelectEntrenador is a cWebView
             Procedure OnClick
                 Send NavigatePath
             End_Procedure
-
-            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-                Move True to NavigateData.bReadOnly
-            End_Procedure
-
         End_Object 
 
         WebRegisterPath ntNavigateForward oZoomEntrenador
 
         Procedure OnRowClick String sRowId
-            tWebNavigateData NavigateData
-            Get GetNavigateData to NavigateData
-
-            Case Begin
-                Case (NavigateData.eNavigateType = nfFromParent)
-                    Send NavigateForward of oZoomEntrenador Self
-                    Case Break
-
-                Case (NavigateData.eNavigateType = nfFromChild)
-                    Send NavigateClose Self
-                    Case Break
-
-                Case (NavigateData.eNavigateType = nfFromMain)
-                    Send NavigateClose Self
-                    Case Break
-
-                Case Else // must be nfUndefined
-                    Send NavigateForward of oZoomEntrenador Self
-
-            Case End
-        End_Procedure
-
-        Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-            Move True to NavigateData.bReadOnly
+            Send NavigatePath
         End_Procedure
 
     End_Object 
@@ -130,7 +95,6 @@ Object oSelectEntrenador is a cWebView
             Procedure OnClick
                 Send Search of oList
             End_Procedure
-
         End_Object 
 
         Object oNewButton is a cWebMenuItem
@@ -146,38 +110,194 @@ Object oSelectEntrenador is a cWebView
             Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
                 Move True to NavigateData.bNewRecord
             End_Procedure
-
         End_Object 
     End_Object 
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
         WebSet pbRender of oNewButton to True
         WebSet pbRender of oDetailButton to True
-
-        Case Begin
-            Case (NavigateData.eNavigateType = nfFromParent)
-                // If from parent, this is a constrained drill down
-                // If Row select does main-zoom we don't need this
-                WebSet pbRender of oDetailButton to False
-                Case Break
-
-            Case (NavigateData.eNavigateType = nfFromChild)
-                // If from child, this is a probably a parent lookup from a Zoom
-                Case Break
-
-            Case (NavigateData.eNavigateType = nfFromMain)
-                // If from main, this is a probably a main-file lookup from a Zoom
-                WebSet pbRender of oDetailButton to False
-                Case Break
-
-            Case Else // must be nfUndefined
-                // This may be the start of a drilldown query or this may be used for some kind of custom query.
-                // If Row select does main-zoom we don't need this
-                WebSet pbRender of oDetailButton to False
-
-        Case End
-
     End_Procedure
 
+End_Object
 
-End_Object 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
