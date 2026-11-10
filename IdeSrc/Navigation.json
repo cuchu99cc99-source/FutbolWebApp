@@ -2,10 +2,10 @@
    "Projects": [
      {
        "nZoom": 0.4,
-       "nPositionX": 478.50006104,
-       "nPositionY": -577.5,
-       "nWidth": 3552.49969482,
-       "nHeight": 1722.5,
+       "nPositionX": 1121.49987793,
+       "nPositionY": -40,
+       "nWidth": 2267.50036621,
+       "nHeight": 1035,
        "sProject": "WebApp.src",
        "bShowWebApp": false,
        "bShowHidden": false,
@@ -145,24 +145,24 @@
          {
            "Name": "oZoomLiga",
            "Position": {
-             "sX": "1117.5",
-             "sY": "315"
+             "sX": "2254,24981689",
+             "sY": "477,5"
            },
            "TabColor": {
-             "sColorDM": "#672606",
-             "sColorLM": "#FFBFA3"
+             "sColorDM": "#9B3904",
+             "sColorLM": "#FF9F74"
            },
            "bHidden": false
          },
          {
            "Name": "oZoomPosicion",
            "Position": {
-             "sX": "1477.5",
-             "sY": "315"
+             "sX": "2255,25006103",
+             "sY": "477,5"
            },
            "TabColor": {
-             "sColorDM": "#CE4C01",
-             "sColorLM": "#FF7F42"
+             "sColorDM": "#9B3904",
+             "sColorLM": "#FF9F74"
            },
            "bHidden": false
          }
