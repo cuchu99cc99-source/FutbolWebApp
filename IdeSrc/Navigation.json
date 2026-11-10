@@ -1,0 +1,172 @@
+{
+   "Projects": [
+     {
+       "nZoom": 0.4,
+       "nPositionX": 1121.49987793,
+       "nPositionY": -40,
+       "nWidth": 2267.50036621,
+       "nHeight": 1035,
+       "sProject": "WebApp.src",
+       "bShowWebApp": false,
+       "bShowHidden": false,
+       "Elements": [
+         {
+           "Name": "oDashboard",
+           "Position": {
+             "sX": "2250,75006103",
+             "sY": "283,75"
+           },
+           "TabColor": {
+             "sColorDM": "#002C68",
+             "sColorLM": "#97C6FF"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oLogin",
+           "Position": {
+             "sX": "2197.5",
+             "sY": "75"
+           },
+           "TabColor": {
+             "sColorDM": "#002C68",
+             "sColorLM": "#97C6FF"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oSelectEntrenador",
+           "Position": {
+             "sX": "2254,74990845",
+             "sY": "283,75"
+           },
+           "TabColor": {
+             "sColorDM": "#002C68",
+             "sColorLM": "#97C6FF"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oSelectEquipo",
+           "Position": {
+             "sX": "2251,74993896",
+             "sY": "283,75"
+           },
+           "TabColor": {
+             "sColorDM": "#052713",
+             "sColorLM": "#D1F3E0"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oSelectJugador",
+           "Position": {
+             "sX": "2252,75009155",
+             "sY": "283,75"
+           },
+           "TabColor": {
+             "sColorDM": "#052713",
+             "sColorLM": "#D1F3E0"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oSelectLiga",
+           "Position": {
+             "sX": "2251,74993896",
+             "sY": "283,75"
+           },
+           "TabColor": {
+             "sColorDM": "#064F26",
+             "sColorLM": "#A3E8C0"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oSelectPosicion",
+           "Position": {
+             "sX": "2253,75",
+             "sY": "283,75"
+           },
+           "TabColor": {
+             "sColorDM": "#064F26",
+             "sColorLM": "#A3E8C0"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oWebApp",
+           "Position": {
+             "sX": "2557.5",
+             "sY": "0"
+           },
+           "TabColor": {
+             "sColorDM": "#001634",
+             "sColorLM": "#CBE3FF"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oZoomEntrenador",
+           "Position": {
+             "sX": "0",
+             "sY": "315"
+           },
+           "TabColor": {
+             "sColorDM": "#341304",
+             "sColorLM": "#FFDFD1"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oZoomEquipo",
+           "Position": {
+             "sX": "397.5",
+             "sY": "315"
+           },
+           "TabColor": {
+             "sColorDM": "#341304",
+             "sColorLM": "#FFDFD1"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oZoomJugador",
+           "Position": {
+             "sX": "757.5",
+             "sY": "315"
+           },
+           "TabColor": {
+             "sColorDM": "#9B3904",
+             "sColorLM": "#FF9F74"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oZoomLiga",
+           "Position": {
+             "sX": "2254,24981689",
+             "sY": "477,5"
+           },
+           "TabColor": {
+             "sColorDM": "#9B3904",
+             "sColorLM": "#FF9F74"
+           },
+           "bHidden": false
+         },
+         {
+           "Name": "oZoomPosicion",
+           "Position": {
+             "sX": "2255,25006103",
+             "sY": "477,5"
+           },
+           "TabColor": {
+             "sColorDM": "#9B3904",
+             "sColorLM": "#FF9F74"
+           },
+           "bHidden": false
+         }
+       ]
+     }
+   ]
+ }

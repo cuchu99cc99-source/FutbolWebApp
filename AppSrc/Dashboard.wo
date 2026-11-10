@@ -43,7 +43,7 @@ Object oDashboard is a cWebView
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div class="Tile_Title">Ligas</div><div class="Tile_Subtitle">Gestión de Ligas</div></div>'
 
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oSelectLiga Self
+                    Send Show of oSelectLiga
                 End_Procedure
             End_Object
 
@@ -55,7 +55,7 @@ Object oDashboard is a cWebView
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div class="Tile_Title">Equipos</div><div class="Tile_Subtitle">Gestión de Equipos</div></div>'
 
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oSelectEquipo Self
+                    Send Show of oSelectEquipo
                 End_Procedure
             End_Object
 
@@ -66,7 +66,7 @@ Object oDashboard is a cWebView
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div class="Tile_Title">Jugadores</div><div class="Tile_Subtitle">Gestión de Jugadores</div></div>'
 
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oSelectJugador Self
+                    Send Show of oSelectJugador
                 End_Procedure
             End_Object
 
@@ -78,7 +78,7 @@ Object oDashboard is a cWebView
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div class="Tile_Title">Entrenadores</div><div class="Tile_Subtitle">Gestión de Entrenadores</div></div>'
 
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oSelectEntrenador Self
+                    Send Show of oSelectEntrenador
                 End_Procedure
             End_Object
 
@@ -89,12 +89,11 @@ Object oDashboard is a cWebView
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div class="Tile_Title">Posiciones</div><div class="Tile_Subtitle">Gestión de Posiciones</div></div>'
 
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oSelectPosicion Self
+                    Send Show of oSelectPosicion
                 End_Procedure
             End_Object
 
         End_Object
-
     End_Object
 
 End_Object

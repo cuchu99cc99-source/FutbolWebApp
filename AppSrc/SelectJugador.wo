@@ -12,6 +12,7 @@ Use ZoomJugador.wo
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
+Use centrenadorDataDictionary.dd
 Use cjugadorDataDictionary.dd
 
 Object oSelectJugador is a cWebView
@@ -26,16 +27,19 @@ Object oSelectJugador is a cWebView
     End_Object 
 
     Object oequipo_DD is a cequipoDataDictionary
-        Set DDO_Server To oliga_DD
+        Set DDO_Server to oliga_DD
+    End_Object 
+
+    Object oentrenador_DD is a centrenadorDataDictionary
+        Set DDO_Server to oequipo_DD
     End_Object 
 
     Object ojugador_DD is a cjugadorDataDictionary
-        Set DDO_Server To oequipo_DD
+        Set DDO_Server to oequipo_DD
     End_Object 
 
-    Set Main_DD To ojugador_DD
-    Set Server  To ojugador_DD
-
+    Set Main_DD to ojugador_DD
+    Set Server  to ojugador_DD
 
     Object oList is a cWebList
         Set piColumnSpan to 0
@@ -45,34 +49,22 @@ Object oSelectJugador is a cWebView
         Set pbShowHeader to False
         Set piSortColumn to 0
 
-        Object ojugadorID is a cWebColumn
-            Entry_Item jugador.ID
-            Set psCaption to "jugador.ID"
-            Set piWidth to 124
-        End_Object 
-
         Object ojugadorNombre is a cWebColumn
             Entry_Item jugador.Nombre
             Set psCaption to "jugador.Nombre"
-            Set piWidth to 745
-        End_Object 
-
-        Object ojugadorApellido is a cWebColumn
-            Entry_Item jugador.Apellido
-            Set psCaption to "jugador.Apellido"
-            Set piWidth to 745
+            Set piWidth to 500
         End_Object 
 
         Object ojugadorNacionalidad is a cWebColumn
             Entry_Item jugador.Nacionalidad
             Set psCaption to "jugador.Nacionalidad"
-            Set piWidth to 621
+            Set piWidth to 500
         End_Object 
 
         Object oequipoNombre is a cWebColumn
             Entry_Item equipo.Nombre
             Set psCaption to "equipo.Nombre"
-            Set piWidth to 1491
+            Set piWidth to 500
         End_Object 
 
         Object oDetailButton is a cWebColumnButton
@@ -89,45 +81,12 @@ Object oSelectJugador is a cWebView
             Procedure OnClick
                 Send NavigatePath
             End_Procedure
-
-            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-                Move True to NavigateData.bReadOnly
-            End_Procedure
-
         End_Object 
 
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-//        WebRegisterPath ntNavigateForward oSelectView
+        WebRegisterPath ntNavigateForward oZoomJugador
 
         Procedure OnRowClick String sRowId
-            tWebNavigateData NavigateData
-            Get GetNavigateData to NavigateData
-
-            Case Begin
-                Case (NavigateData.eNavigateType = nfFromParent)
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-                    Case Break
-
-                Case (NavigateData.eNavigateType = nfFromChild)
-                    Send NavigateClose Self
-                    Case Break
-
-                Case (NavigateData.eNavigateType = nfFromMain)
-                    Send NavigateClose Self
-                    Case Break
-
-                Case Else // must be nfUndefined
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-
-            Case End
-        End_Procedure
-
-        Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-            Move True to NavigateData.bReadOnly
+            Send NavigatePath
         End_Procedure
 
     End_Object 
@@ -141,7 +100,6 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
             Procedure OnClick
                 Send Search of oList
             End_Procedure
-
         End_Object 
 
         Object oNewButton is a cWebMenuItem
@@ -157,34 +115,12 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
             Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
                 Move True to NavigateData.bNewRecord
             End_Procedure
-
         End_Object 
     End_Object 
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
         WebSet pbRender of oNewButton to True
         WebSet pbRender of oDetailButton to True
-
-        Case Begin
-            Case (NavigateData.eNavigateType = nfFromParent)
-                // If from parent, this is a constrained drill down
-                Case Break
-
-            Case (NavigateData.eNavigateType = nfFromChild)
-                // If from child, this is a probably a parent lookup from a Zoom
-                Case Break
-
-            Case (NavigateData.eNavigateType = nfFromMain)
-                // If from main, this is a probably a main-file lookup from a Zoom
-                WebSet pbRender of oDetailButton to False
-                Case Break
-
-            Case Else // must be nfUndefined
-                // This may be the start of a drilldown query or this may be used for some kind of custom query.
-
-        Case End
-
     End_Procedure
 
-
-End_Object 
+End_Object
