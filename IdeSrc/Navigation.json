@@ -133,12 +133,12 @@
          {
            "Name": "oZoomJugador",
            "Position": {
-             "sX": "757.5",
-             "sY": "315"
+             "sX": "3008,75",
+             "sY": "478,75"
            },
            "TabColor": {
-             "sColorDM": "#9B3904",
-             "sColorLM": "#FF9F74"
+             "sColorDM": "#341304",
+             "sColorLM": "#FFDFD1"
            },
            "bHidden": false
          },
