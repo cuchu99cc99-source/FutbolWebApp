@@ -4,8 +4,36 @@ Open jugador
 Open jugadorposicion
 Open equipo
 
+Object oNacionalidad_VT is a DescriptionValidationTable
+    Set Table_Title to "Nacionalidades"
+    Set Validate_State to False
+
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "Italiano" "Italiano"
+        Send Add_Table_Value "Alemán" "Alemán"
+        Send Add_Table_Value "Argentino" "Argentino"
+        Send Add_Table_Value "Español" "Español"
+        Send Add_Table_Value "Neerlandés" "Neerlandés"
+        Send Add_Table_Value "Belga" "Belga"
+        Send Add_Table_Value "Brasileño" "Brasileño"
+        Send Add_Table_Value "Francés" "Francés"
+        Send Add_Table_Value "Uruguayo" "Uruguayo"
+        Send Add_Table_Value "Inglés" "Inglés"
+        Send Add_Table_Value "Polaco" "Polaco"
+        Send Add_Table_Value "Esloveno" "Esloveno"
+        Send Add_Table_Value "Mozambiqueño" "Mozambiqueño"
+        Send Add_Table_Value "Portugués" "Portugués"
+        Send Add_Table_Value "Noruego" "Noruego"
+        Send Add_Table_Value "Escocés" "Escocés"
+        Send Add_Table_Value "Húngaro" "Húngaro"
+        Send Add_Table_Value "Colombiano" "Colombiano"
+        Send Add_Table_Value "Egipcio" "Egipcio"
+    End_Procedure
+End_Object
+
 Class cjugadorDataDictionary is a DataDictionary
-    
+
     Procedure Construct_Object
         Forward Send Construct_Object
         Set Main_File to jugador.File_Number
@@ -15,10 +43,22 @@ Class cjugadorDataDictionary is a DataDictionary
         Set Add_Client_File to jugadorposicion.File_Number
 
         Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
-        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to False
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
 
+        // 1. Proteger PK
+        Set Key_Field_State Field jugador.ID to True
+
+        // 2. Bloquear edición en Nombre y Apellido
+        Set Field_Option Field jugador.Nombre DD_DISPLAYONLY to True
+        Set Field_Option Field jugador.Apellido DD_DISPLAYONLY to True
+
+        // 3. Campos NOT NULL requeridos
+        Set Field_Option Field jugador.ID DD_REQUIRED to True
+        Set Field_Option Field jugador.Nombre DD_REQUIRED to True
+        Set Field_Option Field jugador.Apellido DD_REQUIRED to True
+        Set Field_Value_Table Field jugador.Nacionalidad to oNacionalidad_VT
     End_Procedure
 
 End_Class
