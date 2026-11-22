@@ -4,7 +4,7 @@ Open liga
 Open equipo
 
 Class cligaDataDictionary is a DataDictionary
-    
+
     Procedure Construct_Object
         Forward Send Construct_Object
         Set Main_File to liga.File_Number
@@ -16,6 +16,18 @@ Class cligaDataDictionary is a DataDictionary
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
 
+        // 1. Proteger PK
+        Set Key_Field_State Field liga.ID to True
+
+        // 2. Bloquear edición en Nombre
+        Set Field_Option Field liga.Nombre DD_DISPLAYONLY to True
+
+        // 3. Campos NOT NULL requeridos
+        Set Field_Option Field liga.ID DD_REQUIRED to True
+        Set Field_Option Field liga.Nombre DD_REQUIRED to True
+        Set Field_Option Field liga.Pais DD_REQUIRED to True
+        Set Field_Option Field liga.Equipos DD_REQUIRED to True
+        Set Field_Option Field liga.EquiposMax DD_REQUIRED to True
     End_Procedure
 
 End_Class

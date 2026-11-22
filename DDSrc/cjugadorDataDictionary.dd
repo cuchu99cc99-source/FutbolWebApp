@@ -5,7 +5,7 @@ Open jugadorposicion
 Open equipo
 
 Class cjugadorDataDictionary is a DataDictionary
-    
+
     Procedure Construct_Object
         Forward Send Construct_Object
         Set Main_File to jugador.File_Number
@@ -19,6 +19,17 @@ Class cjugadorDataDictionary is a DataDictionary
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
 
+        // 1. Proteger PK
+        Set Key_Field_State Field jugador.ID to True
+
+        // 2. Bloquear edición en Nombre y Apellido
+        Set Field_Option Field jugador.Nombre DD_DISPLAYONLY to True
+        Set Field_Option Field jugador.Apellido DD_DISPLAYONLY to True
+
+        // 3. Campos NOT NULL requeridos
+        Set Field_Option Field jugador.ID DD_REQUIRED to True
+        Set Field_Option Field jugador.Nombre DD_REQUIRED to True
+        Set Field_Option Field jugador.Apellido DD_REQUIRED to True
     End_Procedure
 
 End_Class

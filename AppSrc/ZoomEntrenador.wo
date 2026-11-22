@@ -7,6 +7,8 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebButton.pkg
+Use sql.pkg
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
@@ -25,15 +27,15 @@ Object oZoomEntrenador is a cWebView
     End_Object 
 
     Object oequipo_DD is a cequipoDataDictionary
-        Set DDO_Server To oliga_DD
+        Set DDO_Server to oliga_DD
     End_Object 
 
     Object oentrenador_DD is a centrenadorDataDictionary
-        Set DDO_Server To oequipo_DD
+        Set DDO_Server to oequipo_DD
     End_Object 
 
-    Set Main_DD To oentrenador_DD
-    Set Server  To oentrenador_DD
+    Set Main_DD to oentrenador_DD
+    Set Server  to oentrenador_DD
 
 
     Object oWebMainPanel is a cWebPanel
@@ -74,19 +76,43 @@ Object oZoomEntrenador is a cWebView
 
         Object oequipoNombre is a cWebForm
             Entry_Item equipo.Nombre
-            Set piColumnSpan to 12
+            Set piColumnSpan to 9
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Equipo"
             Set pbPromptButton to True
 
-// ToDo: Fill in the from-child parent Select view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oSelectView
-
             Procedure OnPrompt
                 Send NavigatePath
             End_Procedure
         End_Object 
+
+        Object oDespedirBtn is a cWebButton
+            Set piColumnSpan to 3
+            Set piColumnIndex to 9
+            Set psCaption to "Despedir"
+
+            Procedure OnClick
+                Boolean bHasRecord
+                Integer iEntrenadorID
+                Handle hoSQL hoConn hoStmt
+
+                Get HasRecord of oentrenador_DD to bHasRecord
+                If (bHasRecord) Begin
+                    Get Field_Current_Value of oentrenador_DD Field entrenador.ID to iEntrenadorID
+                    Get Create (RefClass(cSQLHandleManager)) to hoSQL
+                    Get SqlFileConnect of hoSQL entrenador.File_Number to hoConn
+                    Get SqlOpen of hoConn "" to hoStmt
+                    Send SqlExecDirect of hoStmt ("UPDATE entrenador SET EquipoID = NULL WHERE ID = " + String(iEntrenadorID))
+                    Send SqlClose of hoStmt
+                    Send SqlDisconnect of hoConn
+                    Send Destroy of hoSQL
+                    Send Clear of oequipo_DD
+                    Send FindByRowId of oentrenador_DD entrenador.File_Number (CurrentRowId(oentrenador_DD))
+                    Send NavigateClose Self
+                End
+            End_Procedure
+        End_Object
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
@@ -190,4 +216,4 @@ Object oZoomEntrenador is a cWebView
 
     End_Procedure
 
-End_Object 
+End_Object
